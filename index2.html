@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>역곡 "잊힌 목소리" 지도</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 600px;
+      width: 100%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h2>역곡 "잊힌 목소리" 지도</h2>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // 지도 생성 (역곡역 중심)
+    var map = L.map('map').setView([37.485, 126.811], 15);
+
+    // OpenStreetMap 타일
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    // 1️⃣ 역곡역 핀
+    var marker1 = L.marker([37.485, 126.811]).addTo(map);
+    marker1.bindPopup(
+      "<b>역곡역</b><br>여기는 인터뷰 기록이나 불편 사례를 넣을 수 있습니다.<br>" +
+      "<img src='https://via.placeholder.com/150' alt='역곡역 사진'><br>" +
+      "<a href='https://map.naver.com' target='_blank'>자세히 보기</a>"
+    );
+
+    // 2️⃣ 역곡 북부 핀
+    var marker2 = L.marker([37.488, 126.815]).addTo(map);
+    marker2.bindPopup(
+      "<b>역곡 북부</b><br>장애인 이동권 문제 사례<br>" +
+      "<img src='https://via.placeholder.com/150' alt='북부 사진'><br>" +
+      "<a href='https://map.naver.com' target='_blank'>자세히 보기</a>"
+    );
+
+    // 3️⃣ 역곡 남부 핀
+    var marker3 = L.marker([37.482, 126.810]).addTo(map);
+    marker3.bindPopup(
+      "<b>역곡 남부</b><br>휠체어 접근 불편 사례<br>" +
+      "<img src='https://via.placeholder.com/150' alt='남부 사진'><br>" +
+      "<a href='https://map.naver.com' target='_blank'>자세히 보기</a>"
+    );
+  </script>
+</body>
+</html>
